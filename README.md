@@ -71,18 +71,33 @@ Announce the project to the Rust Embedded Working Group, relevant forums, and so
 ## Code structure
 
 mcu-gen/
+
 ├── .github/
+
 │   └── workflows/         # CI setup later (optional early)
+
 ├── crates/
+
 │   ├── core/              # Core SVD parsing + metadata logic
+
 │   ├── generator/         # Code generation logic
+
 │   ├── cli/               # CLI binary (calls into core/generator)
+
 ├── examples/              # Mini projects per MCU
+
 ├── docs/                  # mdBook source or static site docs
+
 ├── wiki/                  # GitHub wiki clone for offline edits (optional)
+
 ├── svd/                   # Local SVD files for testing
+
 ├── pdfs/                  # Datasheets to be parsed (for later phases)
+
 ├── mcu_metadata/          # Output JSON files per chip
+
 ├── Cargo.toml             # Top-level workspace file
+
 ├── README.md
+
 └── LICENSE
