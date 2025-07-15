@@ -1,52 +1,52 @@
-#Plan for this project:
+# Plan for this project:
 
 
-##Phase 0 – Define the Vision (Week 0)
+## Phase 0 – Define the Vision (Week 0)
 
 Pick 1–2 target MCUs (for example STM32F103C8T6 and RP2040)
 Choose Rust as the primary language and target environment (no_std)
 Decide on project structure and naming conventions (for example “mcu-gen”)
 
-##Phase 1 – SVD Parsing and Basic Metadata Extraction (Weeks 1–3)
+## Phase 1 – SVD Parsing and Basic Metadata Extraction (Weeks 1–3)
 
 Use the svd-parser Rust crate to load SVD files
 Convert SVD data into structured JSON containing peripherals, registers, bitfields, base addresses, pins, and alternate functions
 Implement a CLI command “mcu-gen parse --chip STM32F103C8T6” that outputs mcu_metadata.json
 
-##Phase 2 – Generate a Minimal Rust HAL (Weeks 4–6)
+## Phase 2 – Generate a Minimal Rust HAL (Weeks 4–6)
 
 Define trait-based Rust wrappers for GPIO, ADC, UART, etc.
 Generate methods like PA0.output(), ADC.read(), UART.write()
 Use the quote! and syn crates or a template engine to generate code files
 Add a CLI command “mcu-gen generate --chip STM32F103C8T6 --lang rust” to emit src/gpio.rs, src/adc.rs, etc.
 
-##Phase 3 – Runtime-Aware Capability Descriptions (Weeks 7–9)
+## Phase 3 – Runtime-Aware Capability Descriptions (Weeks 7–9)
 
 Extend the metadata JSON to include runtime-accessible peripheral capabilities
 Implement mcu.has_gpio(), mcu.has_adc() methods in mcu.rs
 Ensure APIs fail gracefully (return Option or Result when a peripheral is unavailable)
 Provide a simple example that queries and prints available peripherals
 
-##Phase 4 – AI/NLP-Assisted Datasheet Parsing (Weeks 10–14)
+## Phase 4 – AI/NLP-Assisted Datasheet Parsing (Weeks 10–14)
 
 Build a PDF parsing pipeline using an LLM (for example GPT) to extract register maps, peripheral summaries, and pin assignments
 Convert extracted information into the same JSON format used for SVD data
 Add a CLI command “mcu-gen parse-pdf <datasheet.pdf>” as a fallback when no SVD is available
 
-##Phase 5 – Support Multiple Chips and Cross-Language Output (Weeks 15–20)
+## Phase 5 – Support Multiple Chips and Cross-Language Output (Weeks 15–20)
 
 Add profiles for additional MCUs (for example RP2040, STM32G4, ESP32)
 Implement C code generation (emit .h and .c files) alongside Rust output
 Introduce feature flags so only used modules are compiled (to minimize code size)
 Provide project scaffolding support (for example via cargo-generate for Rust and CMake for C)
 
-##Phase 6 – Smart Assistant Mode (Optional, Weeks 21–25)
+## Phase 6 – Smart Assistant Mode (Optional, Weeks 21–25)
 
 Create a “mcu doctor” CLI that analyzes existing code for peripheral conflicts or missing initializations
 Add an interactive prompt: “Generate Rust main() for UART + ADC on STM32F103”
 Have the assistant output complete code snippets, linker settings, and pin assignments
 
-##Phase 7 – Documentation, Community, and Release (Week 26+)
+## Phase 7 – Documentation, Community, and Release (Week 26+)
 
 Write comprehensive documentation (for example using mdBook or GitHub Pages)
 Publish the Rust crate on crates.io and provide a C package for download
