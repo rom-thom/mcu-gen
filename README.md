@@ -1,5 +1,13 @@
-# Plan for this project:
+# mcu-gen
+**Generate safe, minimal HALs from SVD or PDF datasheets. In Rust and maybe C.**
 
+## Goals
+
+ - Learn embedded development
+ - Generate code for MCU HALs (automated)
+ - Make a CLI that works from a SVD and datasheet
+
+> This is a project for primarely learning
 
 ## Phase 0 – Define the Vision (Week 0)
 
