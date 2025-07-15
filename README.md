@@ -1,5 +1,5 @@
 # mcu-gen
-**Generate safe, minimal HALs from SVD or PDF datasheets. In Rust and maybe C.**
+**Generate safe, minimal HALs from SVD or PDF datasheets. In Rust and C.**
 
 ## Goals
 
@@ -13,7 +13,7 @@
 
 Pick 1–2 target MCUs (for example STM32F103C8T6 and RP2040)
 Choose Rust as the primary language and target environment (no_std)
-Decide on project structure and naming conventions (for example “mcu-gen”)
+Decide on project structure and naming conventions
 
 ## Phase 1 – SVD Parsing and Basic Metadata Extraction (Weeks 1–3)
 
@@ -48,7 +48,7 @@ Implement C code generation (emit .h and .c files) alongside Rust output
 Introduce feature flags so only used modules are compiled (to minimize code size)
 Provide project scaffolding support (for example via cargo-generate for Rust and CMake for C)
 
-## Phase 6 – Smart Assistant Mode (Optional, Weeks 21–25)
+## Phase 6 – Smart Assistant Mode (Weeks 21–25)
 
 Create a “mcu doctor” CLI that analyzes existing code for peripheral conflicts or missing initializations
 Add an interactive prompt: “Generate Rust main() for UART + ADC on STM32F103”
@@ -60,3 +60,29 @@ Write comprehensive documentation (for example using mdBook or GitHub Pages)
 Publish the Rust crate on crates.io and provide a C package for download
 Create example projects for each supported MCU (STM32, RP2040, etc.)
 Announce the project to the Rust Embedded Working Group, relevant forums, and social media
+
+
+
+
+
+
+
+
+## Code structure
+
+mcu-gen/
+├── .github/
+│   └── workflows/         # CI setup later (optional early)
+├── crates/
+│   ├── core/              # Core SVD parsing + metadata logic
+│   ├── generator/         # Code generation logic
+│   ├── cli/               # CLI binary (calls into core/generator)
+├── examples/              # Mini projects per MCU
+├── docs/                  # mdBook source or static site docs
+├── wiki/                  # GitHub wiki clone for offline edits (optional)
+├── svd/                   # Local SVD files for testing
+├── pdfs/                  # Datasheets to be parsed (for later phases)
+├── mcu_metadata/          # Output JSON files per chip
+├── Cargo.toml             # Top-level workspace file
+├── README.md
+└── LICENSE
