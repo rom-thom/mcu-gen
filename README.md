@@ -7,7 +7,7 @@
  - Generate code for MCU HALs (automated)
  - Make a CLI that works from a SVD and datasheet
 
-> This is a project for primarely learning
+> This is a project primarely for learning
 
 ## Phase 0 – Define the Vision (Week 0)
 
