@@ -3,5 +3,17 @@
 version = 4
 
 [[package]]
-name = "mcu_gen"
+name = "cli"
+version = "0.1.0"
+dependencies = [
+ "core",
+ "generator",
+]
+
+[[package]]
+name = "core"
+version = "0.1.0"
+
+[[package]]
+name = "generator"
 version = "0.1.0"
