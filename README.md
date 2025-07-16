@@ -19,7 +19,7 @@ Decide on project structure and naming conventions
 
 Use the svd-parser Rust crate to load SVD files
 Convert SVD data into structured JSON containing peripherals, registers, bitfields, base addresses, pins, and alternate functions
-Implement a CLI command “mcu-gen parse --chip STM32F103C8T6” that outputs mcu_metadata.json
+Implement a CLI command “mcu-gen parse --chip STM32F103C8T6” that outputs metadata.json
 
 ## Phase 2 – Generate a Minimal Rust HAL (Weeks 4–6)
 
@@ -68,7 +68,7 @@ Announce the project to the Rust Embedded Working Group, relevant forums, and so
 
 
 
-## Code structure
+## Code structure (i don't include everything at once (it is gradual))
 
 mcu-gen/
 ├── .github/
@@ -79,10 +79,24 @@ mcu-gen/
 │   ├── cli/               # CLI binary (calls into core/generator)
 ├── examples/              # Mini projects per MCU
 ├── docs/                  # mdBook source or static site docs
-├── wiki/                  # GitHub wiki clone for offline edits (optional)
-├── svd/                   # Local SVD files for testing
-├── pdfs/                  # Datasheets to be parsed (for later phases)
-├── mcu_metadata/          # Output JSON files per chip
+├── metadata/              
+|   ├── chip_name          # Where all the data about the chip is
+|       ├── source.svd
+|       ├── metadata.json  # Output JSON files per chip
+|       ├── datasheet.pdf  # Datasheets to be parsed (for later phases)
 ├── Cargo.toml             # Top-level workspace file
 ├── README.md
 └── LICENSE
+
+
+
+
+
+## License
+
+This project is licensed under either:
+
+- Apache License, Version 2.0
+- MIT license
+
+at your option.

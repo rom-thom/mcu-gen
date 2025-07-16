@@ -13,7 +13,7 @@ pub fn parse_svd(path: &str)->Device{
 
 #[test]
 fn test_parsing(){
-    let device = parse_svd("../../svd/STM32F103.svd");
+    let device = parse_svd("../../metadata/stm32f103c8t6/source.svd");
     // Print device name
     println!("Parsed device: {}", device.name);
 
