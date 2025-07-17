@@ -1,4 +1,5 @@
 pub mod parse_svd;
+pub mod converting_json;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right

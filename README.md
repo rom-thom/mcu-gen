@@ -84,6 +84,7 @@ mcu-gen/
 |       ├── source.svd
 |       ├── metadata.json  # Output JSON files per chip
 |       ├── datasheet.pdf  # Datasheets to be parsed (for later phases)
+|       ├── notes.md       # For spesific info about MCU
 ├── Cargo.toml             # Top-level workspace file
 ├── README.md
 └── LICENSE

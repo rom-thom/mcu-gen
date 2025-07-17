@@ -5,3 +5,7 @@ edition = "2024"
 
 [dependencies]
 svd-parser = "0.14.9"
+serde = { version = "1.0", features = ["derive"], optional = true }
+
+[features]
+serde = []
